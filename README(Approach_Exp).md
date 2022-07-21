@@ -36,8 +36,10 @@
 
 
 [3]Category
-  1. Created a table that shows 1 if customer purchased in a certain month and 0 if no purchases were made
+   1. Created a table that shows 1 if customer purchased in a certain month and 0 if no purchases were made
       - to make comparison and referencing easier
+   2. Only referenced the table so customers in each category per month can be accessed.
+
   
   # Engaged, New, Inactive
       `sum6 = df6[[1,2,3,4,5,6]].sum(axis=1)`
@@ -67,5 +69,19 @@
   
 
 [4]SalesBreakdown
+     
+  # Unit Price
+      1. Split 'transaction_items' by ';' to get number of orders per customer
+      2. Extracted customers with only 1 order with `count`
+      3. Extracted orders with only 1 quantity
+      4. Removed duplicates to get table with only the items
+      5. Modified final unit_price table
+
+  # Sales Breakdown
+      1. Used item sold breakdown table from [2]ItemBreakdown
+      2. Converted columns into strings for referencing
+      3. Merged `Unit Price` and `Items Sold` for multiplication of values
+      4. Added columns for multiplied values yielding sales of each item per month.
+  
 
 
